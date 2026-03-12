@@ -18,3 +18,7 @@ class Tuit(TuitBase):
 
     class Config:
           from_attributes = True
+
+class TuitThread(Tuit):
+    parent: Optional[UUID]
+    children: List[UUID]
