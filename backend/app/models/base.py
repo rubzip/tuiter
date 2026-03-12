@@ -7,5 +7,5 @@ class UserBase(BaseModel):
     avatar_url: Optional[HttpUrl] = Field(None)
     bio: Optional[str] = Field(None, max_length=160, examples=["I am the owner of all you can see here 🤑🤑🤑🤑"])
 
-class TweetBase(BaseModel):
+class TuitBase(BaseModel):
     content: str = Field(..., min_length=1, max_length=280, examples=["My first tweet 🤑"])
