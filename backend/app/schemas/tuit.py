@@ -11,7 +11,7 @@ class TuitBase(BaseModel):
 
 
 class TuitCreate(TuitBase):
-    parent_id: Optional[UUID] = None
+    parent_id: Optional[UUID] = Field(None, description="Parent tuit ID")
 
 
 class Tuit(TuitBase):
@@ -19,7 +19,7 @@ class Tuit(TuitBase):
     user_id: UUID
     created_at: datetime
     likes_count: int = 0
-    parent_id: Optional[UUID] = None
+    parent_id: Optional[UUID]
 
     class Config:
         from_attributes = True

@@ -9,18 +9,18 @@ router = APIRouter(
     tags=["Interactions"]
 )
 
-@router.post("{user_id}")
+@router.post("/follow/{user_id}")
 async def follow(user_id: UUID):
     pass
 
-@router.post("{user_id}")
+@router.post("/unfollow/{user_id}")
 async def unfollow(user_id: UUID):
     pass
 
-@router.post("{tuit_id}")
+@router.post("/like/{tuit_id}")
 async def like(tuit_id: UUID):
     pass
 
-@router.post("{tuit_id}")
+@router.post("/unlike/{tuit_id}")
 async def unlike(tuit_id: UUID):
     pass

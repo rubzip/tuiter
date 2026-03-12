@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.router import auth, tuits, users, interactions
+from app.router import auth, tuit, user, interaction
+from app.database import engine, Base
+
+# Create database tables
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Tuiter API",
@@ -19,9 +23,9 @@ app.add_middleware(
 
 # Include Routers
 app.include_router(auth.router)
-app.include_router(tuits.router)
-app.include_router(users.router)
-app.include_router(interactions.router)
+app.include_router(tuit.router)
+app.include_router(user.router)
+app.include_router(interaction.router)
 
 @app.get("/health", tags=["Health"])
 async def health_check():
